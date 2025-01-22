@@ -2,7 +2,7 @@ audio_recorder_streamlit
 openai
 audio_recorder_streamlit
 streamlit-float
-streamlit== 1.41.0
+streamlit
 pdfplumber
 opencv-python
 Pillow
