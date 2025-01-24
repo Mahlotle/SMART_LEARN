@@ -116,7 +116,6 @@ def main():
             st.session_state.messages = []
 
         # Displaying previous messages if there are any
-        # Displaying previous messages if there are any
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
                 for content in message["content"]:
@@ -232,9 +231,9 @@ def main():
             with st.chat_message("user"):
                 st.markdown(prompt)
             with st.chat_message("assistant"):
-                st.write(
-                    stream_llm_response(client, model_params)
-                )
+                # Stream response here
+                for content in stream_llm_response(client, model_params):
+                    st.write(content)
 
             # Added audio response (response)
             if audio_response:
