@@ -1,6 +1,5 @@
 import streamlit as st
-from langchain_openai import ChatOpenAI  # Updated import
-from langchain.chains import RunnableSequence  # Updated import
+from openai import OpenAI
 import dotenv
 import os
 from PIL import Image
@@ -107,15 +106,16 @@ def main():
 
     if not (openai_api_key == "" or openai_api_key is None or "sk-" not in openai_api_key):
         st.divider()
-
+    
     if openai_api_key == "" or openai_api_key is None or "sk-" not in openai_api_key:
         st.write("#")
         st.warning("⬅️ Please introduce your OpenAI API(make sure to have funds) to continue")
     else:
-        client = ChatOpenAI(api_key=openai_api_key)  # Updated to ChatOpenAI
+        client = OpenAI(api_key=openai_api_key)
         if "messages" not in st.session_state:
             st.session_state.messages = []
 
+        # Displaying previous messages if there are any
         # Displaying previous messages if there are any
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
@@ -127,6 +127,7 @@ def main():
                             st.image(content["image_url"]["url"])
                     elif isinstance(content, str):  # Handle cases where content is a string
                         st.write(content)
+
 
         # Model options and inputs
         model = st.selectbox("Select a model:", [
@@ -248,7 +249,7 @@ def main():
                     <source src="data:audio/wav;base64,{audio_base64}" type="audio/mp3">
                 </audio>
                 """
-                st.html(audio_html)
+            st.html(audio_html)
 
 if __name__ == "__main__":
     main()
