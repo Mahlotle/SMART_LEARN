@@ -248,7 +248,7 @@ def main():
                     <source src="data:audio/wav;base64,{audio_base64}" type="audio/mp3">
                 </audio>
                 """
-            st.html(audio_html)
+            st.markdown(audio_html, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
