@@ -181,7 +181,7 @@ def main():
 
         cols_img = st.columns(2)
         with cols_img[0]:
-            with st.popover("📁upload"):
+            with st.expander("📁upload"):
                 st.file_uploader(
                     "Upload an image",
                     type=["png", "jpg", "jpeg"],
@@ -191,7 +191,7 @@ def main():
                 )
 
         with cols_img[1]:
-            with st.popover("📷 Camera"):
+            with st.expander("📷 Camera"):
                 activate_camera = st.checkbox("Activate camera")
                 if activate_camera:
                     st.camera_input(
