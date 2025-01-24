@@ -19,3 +19,4 @@ youtube_transcript_api==0.6.1
 openai
 langchain-community
 langchain
+PyPDF2
