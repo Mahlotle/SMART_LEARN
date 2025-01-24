@@ -232,7 +232,7 @@ def main():
             with st.chat_message("user"):
                 st.markdown(prompt)
             with st.chat_message("assistant"):
-                st.write_stream(
+                st.write(
                     stream_llm_response(client, model_params)
                 )
 
