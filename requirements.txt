@@ -20,3 +20,4 @@ openai
 langchain-community
 langchain
 PyPDF2
+langchain-openai
