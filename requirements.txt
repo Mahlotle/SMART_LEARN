@@ -12,7 +12,7 @@ transformers
 Pillow
 ipykernel
 python-dotenv
-langchain==0.0.350
+langchain==0.0.187
 pytube
 streamlit==1.29.0
 youtube_transcript_api==0.6.1
